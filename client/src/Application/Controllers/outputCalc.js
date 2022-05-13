@@ -16,12 +16,12 @@ export default function useOutputCalc() {
 		};
 	};
 
-	const calcLiqPrice = (b, p, l, u, maker, position) => {
+	const calcLiqPrice = (b, p, l, u, maker, position, x) => {
 		const q = parseFloat(b / p);
 		const bb = parseFloat(b);
 		const costs = calcCosts(b);
 		const c = parseFloat(costs[maker]);
-		const m = parseFloat(b / l);
+		const m = parseFloat(b / l) + parseFloat(x);
 		switch (position) {
 			case 'long':
 				return parseFloat(
@@ -42,8 +42,8 @@ export default function useOutputCalc() {
 				);
 		}
 	};
-	const calcLiqPerc = (b, p, l, u, maker, position) => {
-		let liqP = calcLiqPrice(b, p, l, u, maker, position);
+	const calcLiqPerc = (b, p, l, u, maker, position, x) => {
+		let liqP = calcLiqPrice(b, p, l, u, maker, position, x);
 		switch (position) {
 			case 'long':
 				return -(1 - liqP / parseFloat(p)).toFixed(4);

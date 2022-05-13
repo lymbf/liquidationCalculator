@@ -45,7 +45,8 @@ export default function useMainController() {
 								inputs.leverage,
 								inputs.percentage,
 								inputs.maker,
-								inputs.position
+								inputs.position,
+								inputs.extra_margin
 							)
 						).toFixed(4),
 						name: 'liq_price'

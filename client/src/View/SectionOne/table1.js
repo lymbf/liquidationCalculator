@@ -26,6 +26,14 @@ export default function Table1() {
 				<Output name="Margin" value={margin} />
 				<Output name="Volume" value={volume} />
 			</div>
+			<div>
+				<Input
+					name="extra_margin"
+					type="text"
+					label="Add Margin"
+					defaultValue="0"
+				/>
+			</div>
 		</div>
 	);
 }

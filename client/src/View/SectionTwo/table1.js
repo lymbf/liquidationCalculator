@@ -56,7 +56,8 @@ export default function Table1() {
 							inputs.leverage,
 							inputs.percentage,
 							inputs.maker,
-							inputs.position
+							inputs.position,
+							inputs.extra_margin
 						)
 					) * 100).toFixed(2)}
 					char="%"
