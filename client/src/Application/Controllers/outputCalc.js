@@ -80,6 +80,10 @@ export default function useOutputCalc() {
 		}
 	};
 
+	const getMoneyEarnedLost = (perc, price) => {
+		return parseFloat(perc / 100 * price).toFixed(2);
+	};
+
 	return {
 		calcVolume,
 		calcMargin,
@@ -88,6 +92,7 @@ export default function useOutputCalc() {
 		calcLiqPerc,
 		getLastPrice,
 		getStopLossPrice,
-		getTakeProfitPrice
+		getTakeProfitPrice,
+		getMoneyEarnedLost
 	};
 }

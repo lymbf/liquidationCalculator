@@ -18,9 +18,13 @@ export default function Input({
 	const [value, setValue] = useState(defaultValue);
 
 	const handleTxtInputChange = e => {
-		console.log(!isNaN(e.target.value));
-		let data = !isNaN(e.target.value) ? e.target.value : value;
-		setValue(data);
+		if (!e.target.value) {
+			setValue(0);
+		} else {
+			console.log(!isNaN(e.target.value));
+			let data = !isNaN(e.target.value) ? e.target.value : value;
+			setValue(data);
+		}
 	};
 
 	useEffect(

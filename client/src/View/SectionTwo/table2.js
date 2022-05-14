@@ -13,8 +13,13 @@ export default function Table2() {
 		state => state.inputs.take_profit_perc
 	);
 	const price = useSelector(state => state.inputs.price);
+	const balance = useSelector(state => state.inputs.balance);
 	const position = useSelector(state => state.inputs.position);
-	const { getStopLossPrice, getTakeProfitPrice } = useOutputCalc();
+	const {
+		getStopLossPrice,
+		getTakeProfitPrice,
+		getMoneyEarnedLost
+	} = useOutputCalc();
 	return (
 		<div className="s2-table-two common-comp">
 			<div>
@@ -107,6 +112,32 @@ export default function Table2() {
 								char={'$'}
 							/>}
 					</div>
+				</div>
+			</div>
+			<div>
+				<div>
+					<div>
+						<h3>Est. Loss</h3>
+					</div>
+					<Output
+						value={getMoneyEarnedLost(
+							stopLossPerc,
+							balance
+						)}
+						char={'$'}
+					/>
+				</div>
+				<div>
+					<div>
+						<h3>Est. Profit</h3>
+					</div>
+					<Output
+						value={getMoneyEarnedLost(
+							takeProfitPerc,
+							balance
+						)}
+						char={'$'}
+					/>
 				</div>
 			</div>
 		</div>

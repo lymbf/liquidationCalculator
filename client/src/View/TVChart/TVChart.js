@@ -14,7 +14,8 @@ import {
 	seriesOptions,
 	priceFormat,
 	liqLineOptions,
-	entryPLineOptions
+	entryPLineOptions,
+	coinArray
 } from './Controller/chartOptions';
 
 export default function TVChart() {
@@ -32,6 +33,8 @@ export default function TVChart() {
 		});
 	};
 
+	//Creating new chart everytime data changes ( timeframe / coin)
+
 	useEffect(
 		() => {
 			if (data) {
@@ -46,6 +49,8 @@ export default function TVChart() {
 		},
 		[data]
 	);
+
+	//setting up chart series
 
 	useEffect(
 		() => {
@@ -71,6 +76,8 @@ export default function TVChart() {
 		},
 		[chart]
 	);
+
+	//drawing lines - liquidation, entry / update on data change
 
 	useEffect(
 		() => {
@@ -113,6 +120,8 @@ export default function TVChart() {
 		[liqPrice, entryPrice, series]
 	);
 
+	// updating last candle - realtime chart
+
 	useEffect(
 		() => {
 			if (lastCandle && series) {
@@ -126,21 +135,22 @@ export default function TVChart() {
 			<Input
 				name="interval"
 				type="select"
-				options={['1m', '5m', '15m', '30m', '1h', '4h', '1d']}
+				options={[
+					'1m',
+					'5m',
+					'15m',
+					'30m',
+					'1h',
+					'4h',
+					'1d',
+					'1w'
+				]}
 				defaultValue={'1h'}
 			/>
 			<Input
 				name="symbol"
 				type="select"
-				options={[
-					'BTCUSDT',
-					'ETHUSDT',
-					'LUNAUSDT',
-					'SOLUSDT',
-					'APEUSDT',
-					'XRPUSDT',
-					'TRXUSDT'
-				]}
+				options={coinArray}
 				defaultValue={'BTCUSDT'}
 			/>
 			<div className="tv-chart" ref={chartRef} />

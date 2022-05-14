@@ -72,3 +72,26 @@ h2 {
 	height: 30px;
 	font-size: 1.1rem;
 }
+
+.s2-table-two h3 {
+	color: white;
+	font-size: 1rem;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+	margin-top: 1rem;
+}
+
+.s2-table-two > div:last-child > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.s2-table-two > div:last-child .output > div:first-child {
+	width: 0;
+}
+
+.s2-table-two > div:last-child .output {
+	font-size: 1rem;
+}

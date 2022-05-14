@@ -82,6 +82,25 @@ const entryPLineOptions = {
 	title: 'Entry Price'
 };
 
+const coinArray = [
+	'BTCUSDT',
+	'ETHUSDT',
+	'LUNAUSDT',
+	'SOLUSDT',
+	'APEUSDT',
+	'XRPUSDT',
+	'TRXUSDT',
+	'GALUSDT',
+	'DOTUSDT',
+	'IOTAUSDT',
+	'AVAXUSDT',
+	'MANAUSDT',
+	'NEARUSDT',
+	'GALAUSDT',
+	'RUNEUSDT',
+	'ATOMUSDT'
+];
+
 export {
 	parseData,
 	parseWSData,
@@ -89,5 +108,6 @@ export {
 	seriesOptions,
 	priceFormat,
 	liqLineOptions,
-	entryPLineOptions
+	entryPLineOptions,
+	coinArray
 };
